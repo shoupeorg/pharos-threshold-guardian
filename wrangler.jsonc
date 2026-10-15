@@ -1,0 +1,21 @@
+{
+  "name": "pharos-threshold-guardian",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pharos-threshold-guardian-actions",
+      "database_id": "df5a66e0-e0b2-4f37-a2c6-f42c3f0fced1",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "observability": { "enabled": true }
+}
