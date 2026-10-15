@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pharos Threshold Guardian</title>
+    <meta name="description" content="Evaluate three live Pharos chain thresholds through the official Chain MCP." />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/pharos-logo.png" />
+  </head>
+  <body>
+    <main class="desktop">
+      <header class="desktop-header">
+        <a class="brand" href="/">
+          <span class="logo-box"><img src="/pharos-logo.png" alt="Pharos logo" width="286" height="358" /></span>
+          <span>PHAROS<span class="brand-sub">THRESHOLD GUARDIAN</span></span>
+        </a>
+        <span class="desktop-badge">MAINNET / 1672</span>
+      </header>
+
+      <section class="app-window" aria-label="Pharos Threshold Guardian">
+        <div class="titlebar">
+          <span class="titlebar-name"><span class="app-icon" aria-hidden="true">◆</span> GUARDIAN.EXE</span>
+          <span class="window-chrome" aria-hidden="true"><i>_</i><i>□</i><i>×</i></span>
+        </div>
+        <div class="menubar"><span>Threshold Guardian</span><span>CHAIN MCP</span><span class="menu-right">READ ONLY + OFF-CHAIN RECORD</span></div>
+
+        <div class="window-body">
+          <section class="intro">
+            <p class="kicker">PHAROS AGENT ARENA / POLICY ENGINE</p>
+            <h1>THRESHOLD GUARDIAN<span class="cursor" aria-hidden="true">_</span></h1>
+            <p>Read three independent on-chain conditions, compare exact integer values, and record a persistent off-chain action only when every condition passes.</p>
+          </section>
+
+          <fieldset class="control-panel">
+            <legend>01 · GUARDIAN CONFIGURATION</legend>
+            <div class="address-grid">
+              <label><span>ACCOUNT ADDRESS</span><input id="account" autocomplete="off" spellcheck="false" /></label>
+              <label><span>ERC-20 CONTRACT</span><input id="token" autocomplete="off" spellcheck="false" /></label>
+            </div>
+            <div class="condition-grid">
+              <div class="condition-input"><b>NATIVE BALANCE</b><select id="native-op" aria-label="Native balance operator"></select><input id="native-threshold" inputmode="decimal" aria-label="Native balance threshold" /><em>PROS</em></div>
+              <div class="condition-input"><b>ERC-20 BALANCE</b><select id="token-op" aria-label="Token balance operator"></select><input id="token-threshold" inputmode="decimal" aria-label="Token balance threshold" /><em>TOKEN</em></div>
+              <div class="condition-input"><b>CURRENT GAS PRICE</b><select id="gas-op" aria-label="Gas price operator"></select><input id="gas-threshold" inputmode="decimal" aria-label="Gas price threshold" /><em>GWEI</em></div>
+            </div>
+            <div class="controls">
+              <button class="primary" id="run" type="button">RUN GUARDIAN →</button>
+              <button class="secondary" id="fire-preset" type="button">FIRE POLICY</button>
+              <button class="secondary" id="hold-preset" type="button">HOLD POLICY</button>
+              <span>FIRE presets change policy only. Every observation is fetched live.</span>
+            </div>
+          </fieldset>
+
+          <section class="telemetry" aria-label="Guardian status">
+            <div><span>CONNECTION</span><strong id="connection" data-state="idle">IDLE</strong></div>
+            <div><span>RUN ID</span><strong id="run-id">—</strong></div>
+            <div><span>PINNED BLOCK</span><strong id="block">—</strong></div>
+            <div><span>FINAL DECISION</span><strong id="decision" data-decision="idle">—</strong></div>
+          </section>
+
+          <section class="trace-window" aria-live="polite">
+            <div class="output-title"><span>02 · CONDITION_TRACE.OUT</span><span id="trace-summary">AWAITING RUN</span></div>
+            <div class="trace-grid" id="traces">
+              <div class="empty-state"><strong>NO TRACE YET</strong><span>Run the guardian to fetch live MCP observations.</span></div>
+            </div>
+            <div class="error-panel" id="error" hidden></div>
+          </section>
+
+          <section class="action-window">
+            <div class="output-title"><span>03 · ACTION_HISTORY.LOG</span><span>RECORD ACTION / OFF-CHAIN</span></div>
+            <p class="section-note">Only FIRE appends a record. HOLD and ERROR create no action. Reusing a run ID cannot create a duplicate.</p>
+            <div class="action-list" id="actions"><div class="empty-state"><strong>NO ACTION RECORDS</strong><span>Persistent history will appear after a FIRE decision.</span></div></div>
+          </section>
+        </div>
+
+        <div class="statusbar">
+          <span><span class="status-dot"></span><b id="system-status">SYSTEM READY</b></span>
+          <span id="action-status">NO TRANSACTION CAPABILITY</span>
+          <span>MCP / READ ONLY</span>
+        </div>
+      </section>
+
+      <footer>
+        <span>PHAROS AGENT ARENA · THRESHOLD GUARDIAN</span>
+        <a href="https://github.com/PharosNetwork/pharos-mcp" target="_blank" rel="noopener noreferrer">MCP DOCUMENTATION ↗</a>
+      </footer>
+    </main>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
