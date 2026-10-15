@@ -1,0 +1,41 @@
+{
+  "evidenceType": "live-mcp-run",
+  "runId": "demo-fire-20261015T0735Z",
+  "startedAt": "2026-10-15T07:34:59.107Z",
+  "completedAt": "2026-10-15T07:35:02.272Z",
+  "network": "Pharos",
+  "chainId": 1672,
+  "blockNumber": "20288204",
+  "mcpEndpoint": "https://mcp.pharos.xyz/mcp",
+  "configuration": {
+    "account": "0xC879C018dB60520F4355C26eD1a6D572cdAC1815",
+    "token": "0xC879C018dB60520F4355C26eD1a6D572cdAC1815",
+    "native": { "operator": ">=", "threshold": "0", "unit": "PROS" },
+    "tokenBalance": { "operator": ">=", "threshold": "0", "unit": "USDC" },
+    "gasPrice": { "operator": ">=", "threshold": "0", "unit": "gwei" }
+  },
+  "observations": {
+    "observedAt": "2026-10-15T07:35:02.100Z",
+    "nativeBalanceWei": "0",
+    "nativeBalance": "0",
+    "tokenBalanceRaw": "0",
+    "tokenBalance": "0",
+    "tokenDecimals": 6,
+    "tokenSymbol": "USDC",
+    "gasPriceWei": "10000000000",
+    "gasPriceGwei": "10"
+  },
+  "traces": [
+    { "condition": "Native balance", "expression": "0 PROS >= 0 PROS", "pass": true },
+    { "condition": "ERC-20 balance", "expression": "0 USDC >= 0 USDC", "pass": true },
+    { "condition": "Gas price", "expression": "10 gwei >= 0 gwei", "pass": true }
+  ],
+  "decision": "FIRE",
+  "action": {
+    "type": "Record action",
+    "actionId": "record-demo-fire-20261015T0735Z",
+    "recordedAt": "2026-10-15T07:35:02.272Z",
+    "created": true,
+    "retryVerifiedCreated": false
+  }
+}
